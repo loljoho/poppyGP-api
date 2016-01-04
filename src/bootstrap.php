@@ -1,4 +1,11 @@
 <?php
+/**
+ * Bootstrapper
+ */
+
+
+
+
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
     // something which should probably be served as a static file
@@ -6,6 +13,9 @@ if (PHP_SAPI == 'cli-server') {
     if (is_file($file)) {
         return false;
     }
+    // Pesky timezone message
+    date_default_timezone_set('America/New_York');
+
 }
 
 require __DIR__ . '/../vendor/autoload.php';
